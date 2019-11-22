@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>abu</title>
+    <meta name="description" content="Amazing. Beautiful. Unbelievable." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="twitter:title" content="abu" />
+    <meta name="twitter:description" content="Amazing. Beautiful. Unbelievable." />
+    <link rel="icon" href="https://cdn.landen.co/defaults/favicon.ico" />
+    <link rel="stylesheet" href="css/5a2d6c6ca0e94cfeb5ecfeb336c5e1f9.css" />
+    <style tyle="text/css">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            --title-scale: 1;
+        }
+        
+        @media only screen and (max-width: 750px) {
+            body {
+                --title-scale: 0.7;
+            }
+        }
+        
+        .wr {
+            max-width: 1200px;
+            max-width: var(--wr-max);
+        }
+        
+        .section:not(.dark),
+        .theme--light,
+        .section:not(.dark) .color-2,
+        .theme--light .color-2 {
+            color: #fff;
+        }
+        
+        .section.dark,
+        .theme--dark,
+        .section.dark .color-2,
+        .theme--dark .color-2 {
+            color: #303235;
+        }
+        
+        .section:not(.dark) .color-1,
+        .theme--light .color-1 {
+            color: #fff;
+        }
+        
+        .section.dark .color-1,
+        .theme--dark .color-1 {
+            color: #303235;
+        }
+        
+        .section:not(.dark) .color-2,
+        .theme--light .color-2 {
+            color: #fff;
+        }
+        
+        .section.dark .color-2,
+        .theme--light .color-2 {
+            color: #303235;
+        }
+        
+        a:not(.btn),
+        .link {
+            color: rgba(195, 225, 255, 1);
+            --link-hover-bg: rgba(195, 225, 255, 0.05);
+            --link-hover: rgb(93, 174, 255);
+        }
+        
+        .dark a:not(.btn),
+        .dark .link,
+        .theme--dark .link,
+        .theme--dark a:not(.btn) {
+            color: rgba(8, 129, 254, 1);
+            --link-hover-bg: rgba(8, 129, 254, 0.05);
+            --link-hover: rgb(1, 79, 159);
+        }
+        
+        .weight-text {
+            font-weight: 400;
+        }
+        
+        .weight-text-m {
+            font-weight: 500;
+        }
+        
+        .weight-text-h {
+            font-weight: 600;
+        }
+        
+        .weight-title {
+            font-weight: 400;
+        }
+        
+        .weight-title-m {
+            font-weight: 400;
+        }
+        
+        .weight-title-h {
+            font-weight: 700;
+        }
+        
+        .font-title {
+            font-family: 'Crimson Text', serif;
+        }
+        
+        a,
+        .link {
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a:not(.btn):hover {
+            text-decoration: underline
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,700&amp;display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header id="header" class="section header dark" style="--wr-max:1200px">
+        <div class="wr color-1"><a id="headerLogo" href="/" class="header__logo" style="font-weight:700;font-size:26px">abu</a>
+            <nav id="headerNav" class="header__nav">
+                <div class="headerNav__links"><a href="">Company news</a><a href="">Jobs</a></div>
+                <div class="header__navCtas"></div>
+            </nav>
+            <nav id="headerMenu" class="header__nav header__nav--hidden">
+                <div id="headerMenuButton" class="burger">Menu</div>
+            </nav>
+        </div>
+        <nav id="headerDrawer" class="headerMenu col-dark-sec">
+            <div id="headerDrawerBackdrop" class="headerMenu__backdrop"></div>
+            <div class="headerMenu__wrapper" style="background-color:#ffffff">
+                <button id="headerDrawerClose" class="headerMenu__close btn"></button>
+                <ul class="headerMenu__links">
+                    <li><a href="" class="drawerLink">Company news </a></li>
+                    <li><a href="" class="drawerLink">Jobs </a></li>
+                </ul>
+            </div>
+        </nav>
+        <script>
+            (function() {
+                var buffer = 10;
+                var margin = 60 + 40 + buffer;
+                // button
+                var button = document.getElementById('headerMenuButton');
+                var buttonWrapper = document.getElementById('headerMenu');
+                // drawer
+                var drawer = document.getElementById('headerDrawer');
+                var drawerBackdrop = document.getElementById('headerDrawerBackdrop');
+                var drawerClose = document.getElementById('headerDrawerClose');
+                // header UI
+                var logo = document.getElementById('headerLogo');
+                var nav = document.getElementById('headerNav');
+                var logoWidth = logo.offsetWidth;
+                var navWidth = nav.offsetWidth;
+
+                var determineVisibility = function() {
+                    var parent = window.innerWidth;
+                    if (logoWidth + navWidth > parent - margin) {
+                        nav.classList.add('header__nav--hidden');
+                        buttonWrapper.classList.add('headerMenu--visible');
+                    } else {
+                        nav.classList.remove('header__nav--hidden');
+                        buttonWrapper.classList.remove('headerMenu--visible');
+                    }
+                };
+
+                var showDrawer = function() {
+                    drawer.classList.add('headerMenu--visible');
+                };
+
+                var hideDrawer = function() {
+                    drawer.classList.remove('headerMenu--visible');
+                };
+
+                button.onclick = showDrawer;
+                drawerBackdrop.onclick = hideDrawer;
+                drawerClose.onclick = hideDrawer;
+
+                window.addEventListener('resize', determineVisibility);
+                determineVisibility();
+            })();
+        </script>
+    </header>
+    <div id="hero" class="section section--hero section--noPadding section--left dark" style="background-color:#fff;--pdx-min-height:700px;--wr-max:1200px">
+        <div class="ft ft--left ft--isFirst" style="--pdx-pt:0;--pdx-pb:0">
+            <div class="ft__half">
+                <div class="ft__wrapper" style="max-width:570px">
+                    <div class="ft__content">
+                        <h1 class="hero__title color-1 weight-title-h font-title">Have you tried AGI?</h1>
+                        <p class="hero__subtitle weight-text">It&#39;s Amazing. Beautiful. Unbelievable.</p>
+                        <div class="ctas">
+                            <div class="inlineFormWrapper left">
+                                <form id="if_656qoo66pkq" class="inlineForm inlineForm--c long">
+                                    <div class="inlineFormContent">
+                                        <input type="hidden" id="if_siteid_656qoo66pkq" value="12vtfoyb92s3" />
+                                        <input type="hidden" id="if_listid_656qoo66pkq" value="el_KrrCYMrnrWotBrgz" />
+                                        <input type="hidden" id="if_action_656qoo66pkq" value="landen" />
+                                        <input type="hidden" id="if_url_656qoo66pkq" />
+                                        <input type="hidden" id="if_legal_656qoo66pkq" />
+                                        <input type="hidden" id="if_reqaccept_656qoo66pkq" />
+                                        <input type="email" id="if_email_656qoo66pkq" class="inlineForm__input" placeholder="email@example.com" />
+                                        <button id="if_submit_656qoo66pkq" class="btn btn--c btn--primary btn--large" style="color:#fff;background-color:#0881fe">Join Waitlist</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <script>
+                                ;
+                                (function() {
+                                    var elForm = document.getElementById('if_656qoo66pkq'),
+                                        elSubmitBtn = document.getElementById('if_submit_656qoo66pkq'),
+                                        elSiteID = document.getElementById('if_siteid_656qoo66pkq'),
+                                        elListID = document.getElementById('if_listid_656qoo66pkq'),
+                                        elEmail = document.getElementById('if_email_656qoo66pkq'),
+                                        elAction = document.getElementById('if_action_656qoo66pkq'),
+                                        elURL = document.getElementById('if_url_656qoo66pkq'),
+                                        elName = document.getElementById('if_name_656qoo66pkq'),
+                                        elReqAccept = document.getElementById('if_reqaccept_656qoo66pkq'),
+                                        elAccept = document.getElementById('if_accept_656qoo66pkq'),
+                                        elAcceptLabel = document.getElementById('if_acceptlbl_656qoo66pkq'),
+                                        elLegal = document.getElementById('if_legal_656qoo66pkq'),
+                                        elLegalUI = document.getElementById('if_legalui_656qoo66pkq')
+
+                                    function bindInlineForm() {
+                                        elForm.addEventListener('submit', handleInlineSubmit)
+                                        elSubmitBtn.addEventListener('click', handleInlineSubmit)
+                                        elEmail.oninput = handleEmailChange
+                                    }
+
+                                    function handleInlineSubmit(e) {
+                                        e.preventDefault()
+
+                                        var data = {
+                                            siteId: elSiteID.value,
+                                            listId: elListID.value,
+                                            email: elEmail.value,
+                                            action: elAction.value,
+                                            name: elName ? elName.value : null,
+                                            didAccept: elAccept ? elAccept.checked : null,
+                                            legal: elLegal ? elLegal.value : null
+                                        }
+
+                                        if (!validateInlineData(data)) {
+                                            return
+                                        }
+
+                                        elSubmitBtn.classList.add('btn--loading')
+
+                                        if (data.action === 'forward') {
+                                            forwardData(data)
+                                        } else {
+                                            sendInlineData(data)
+                                        }
+                                    }
+
+                                    function forwardData(data) {
+                                        var url = elURL.value
+
+                                        url = url.replace('[EMAIL]', data.email)
+                                        url = url.replace('[NAME]', data.name)
+
+                                        sendEvent(data.siteId, data.action, data.listId, true)
+
+                                        window.location.href = url
+                                    }
+
+                                    function sendInlineData(data) {
+                                        var request = new XMLHttpRequest()
+                                        request.open('POST', 'api/subscribe', true)
+                                        request.setRequestHeader(
+                                            'Content-Type',
+                                            'application/x-www-form-urlencoded; charset=UTF-8'
+                                        )
+                                        request.send(JSON.stringify(data))
+
+                                        request.onload = function() {
+                                            elSubmitBtn.classList.remove('btn--loading')
+                                            if (this.status >= 200 && this.status < 400) {
+                                                // success handling
+                                                clearInlineData()
+                                                elSubmitBtn.classList.add('btn--success')
+                                                setTimeout(function() {
+                                                    elSubmitBtn.classList.remove('btn--success')
+                                                }, 2000)
+                                                sendEvent(data.siteId, data.action, data.listId, false)
+                                            } else {
+                                                console.log('error')
+                                            }
+                                        }
+
+                                        request.onerror = function() {
+                                            alert(
+                                                'A network error occured. Please make sure you are connected to the internet.'
+                                            )
+                                        }
+                                    }
+
+                                    function sendEvent(siteId, action, listId, asBeacon) {
+                                        var data = JSON.stringify({
+                                            siteId: siteId,
+                                            category: 'emailForm',
+                                            name: 'Email Form',
+                                            data: {
+                                                action: action,
+                                                listId: listId,
+                                                page: window.location.pathname
+                                            }
+                                        })
+
+                                        if (asBeacon) {
+                                            if (navigator.sendBeacon) {
+                                                navigator.sendBeacon('/api/event', data)
+                                            }
+                                        } else {
+                                            var request = new XMLHttpRequest();
+                                            request.open('POST', '/api/event', true);
+                                            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+                                            request.send(data);
+                                        }
+                                    }
+
+                                    function clearInlineData() {
+                                        elEmail.value = ''
+                                        if (elName) {
+                                            elName.value = ''
+                                        }
+                                        showLegal(false)
+                                    }
+
+                                    function handleEmailChange(e) {
+                                        if (e.target.value && e.target.value.length > 6) {
+                                            showLegal(true)
+                                        } else {
+                                            showLegal(false)
+                                        }
+                                    }
+
+                                    function showLegal(show) {
+                                        if (elLegalUI) {
+                                            if (show) {
+                                                elLegalUI.classList.add('show')
+                                            } else {
+                                                elLegalUI.classList.remove('show')
+                                            }
+                                        }
+                                    }
+
+                                    function validateInlineData(data) {
+                                        var error = false
+
+                                        if (
+                                            data.email.length < 6 ||
+                                            data.email.indexOf('@') === -1 ||
+                                            data.email.indexOf('.') === -1
+                                        ) {
+                                            error = true
+                                            elEmail.classList.add('error')
+                                        } else {
+                                            elEmail.classList.remove('error')
+                                        }
+
+                                        if (elName && elName.value === '') {
+                                            error = true
+                                            elName.classList.add('error')
+                                        } else if (elName) {
+                                            elName.classList.remove('error')
+                                        }
+
+                                        if (elAcceptLabel) {
+                                            if (elReqAccept.value === 'true' && !elAccept.checked) {
+                                                error = true
+                                                elAcceptLabel.classList.add('error')
+                                            } else {
+                                                elAcceptLabel.classList.remove('error')
+                                            }
+                                        }
+
+                                        return error === false
+                                    }
+                                    bindInlineForm()
+                                })()
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ft__half pdx pdxParent--img-transparent" style="--pdx-maxheight:1">
+                <div class="pdxItem pdxItem--img-transparent"><img src="img/messaging_uok8.svg" /></div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer" class="section section--footer section--center dark" style="background-color:#fafafa;padding-bottom:15px;padding-top:15px;--pdx-min-height:0px;--wr-max:1200px">
+        <div class="wr">
+            <div class="footer footer--simple">
+                <div class="footer__primary">
+                    <nav class="footer__linkRow"><a href="">Terms of Service</a><a href="">Privacy Policy</a></nav>
+                </div>
+                <ul class="footer__social">
+                    <li>
+                        <a href="" target="_blank" class="color-2">
+                            <svg viewBox="0 0 448 512">
+                                <path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank" class="color-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank" class="color-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                <path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z" fill="currentColor"></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        /*! smooth-scroll v14.2.1 | (c) 2018 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/smooth-scroll */ !(function(e, t) {
+            "function" == typeof define && define.amd ? define([], (function() {
+                return t(e)
+            })) : "object" == typeof exports ? module.exports = t(e) : e.SmoothScroll = t(e)
+        })("undefined" != typeof global ? global : "undefined" != typeof window ? window : this, (function(e) {
+            "use strict";
+            var t = {
+                    ignore: "[data-scroll-ignore]",
+                    header: null,
+                    topOnEmptyHash: !0,
+                    speed: 500,
+                    clip: !0,
+                    offset: 0,
+                    easing: "easeInOutCubic",
+                    customEasing: null,
+                    updateURL: !0,
+                    popstate: !0,
+                    emitEvents: !0
+                },
+                n = function() {
+                    return "querySelector" in document && "addEventListener" in e && "requestAnimationFrame" in e && "closest" in e.Element.prototype
+                },
+                o = function() {
+                    for (var e = {}, t = 0; t < arguments.length; t++) !(function(t) {
+                        for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n])
+                    })(arguments[t]);
+                    return e
+                },
+                r = function(t) {
+                    return !!("matchMedia" in e && e.matchMedia("(prefers-reduced-motion)").matches)
+                },
+                a = function(t) {
+                    return parseInt(e.getComputedStyle(t).height, 10)
+                },
+                i = function(e) {
+                    var t;
+                    try {
+                        t = decodeURIComponent(e)
+                    } catch (n) {
+                        t = e
+                    }
+                    return t
+                },
+                c = function(e) {
+                    "#" === e.charAt(0) && (e = e.substr(1));
+                    for (var t, n = String(e), o = n.length, r = -1, a = "", i = n.charCodeAt(0); ++r < o;) {
+                        if (0 === (t = n.charCodeAt(r))) throw new InvalidCharacterError("Invalid character: the input contains U+0000.");
+                        t >= 1 && t <= 31 || 127 == t || 0 === r && t >= 48 && t <= 57 || 1 === r && t >= 48 && t <= 57 && 45 === i ? a += "\\" + t.toString(16) + " " : a += t >= 128 || 45 === t || 95 === t || t >= 48 && t <= 57 || t >= 65 && t <= 90 || t >= 97 && t <= 122 ? n.charAt(r) : "\\" + n.charAt(r)
+                    }
+                    var c;
+                    try {
+                        c = decodeURIComponent("#" + a)
+                    } catch (e) {
+                        c = "#" + a
+                    }
+                    return c
+                },
+                u = function(e, t) {
+                    var n;
+                    return "easeInQuad" === e.easing && (n = t * t), "easeOutQuad" === e.easing && (n = t * (2 - t)), "easeInOutQuad" === e.easing && (n = t < .5 ? 2 * t * t : (4 - 2 * t) * t - 1), "easeInCubic" === e.easing && (n = t * t * t), "easeOutCubic" === e.easing && (n = --t * t * t + 1), "easeInOutCubic" === e.easing && (n = t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1), "easeInQuart" === e.easing && (n = t * t * t * t), "easeOutQuart" === e.easing && (n = 1 - --t * t * t * t), "easeInOutQuart" === e.easing && (n = t < .5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t), "easeInQuint" === e.easing && (n = t * t * t * t * t), "easeOutQuint" === e.easing && (n = 1 + --t * t * t * t * t), "easeInOutQuint" === e.easing && (n = t < .5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t), e.customEasing && (n = e.customEasing(t)), n || t
+                },
+                s = function() {
+                    return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight)
+                },
+                l = function(t, n, o, r) {
+                    var a = 0;
+                    if (t.offsetParent)
+                        do {
+                            a += t.offsetTop, t = t.offsetParent
+                        } while (t);
+                    return a = Math.max(a - n - o, 0), r && (a = Math.min(a, s() - e.innerHeight)), a
+                },
+                d = function(e) {
+                    return e ? a(e) + e.offsetTop : 0
+                },
+                f = function(e, t, n) {
+                    t || history.pushState && n.updateURL && history.pushState({
+                        smoothScroll: JSON.stringify(n),
+                        anchor: e.id
+                    }, document.title, e === document.documentElement ? "#top" : "#" + e.id)
+                },
+                m = function(t, n, o) {
+                    0 === t && document.body.focus(), o || (t.focus(), document.activeElement !== t && (t.setAttribute("tabindex", "-1"), t.focus(), t.style.outline = "none"), e.scrollTo(0, n))
+                },
+                h = function(t, n, o, r) {
+                    if (n.emitEvents && "function" == typeof e.CustomEvent) {
+                        var a = new CustomEvent(t, {
+                            bubbles: !0,
+                            detail: {
+                                anchor: o,
+                                toggle: r
+                            }
+                        });
+                        document.dispatchEvent(a)
+                    }
+                };
+            return function(a, p) {
+                var g, v, y, S, E, b, O, I = {};
+                I.cancelScroll = function(e) {
+                    cancelAnimationFrame(O), O = null, e || h("scrollCancel", g)
+                }, I.animateScroll = function(n, r, a) {
+                    var i = o(g || t, a || {}),
+                        c = "[object Number]" === Object.prototype.toString.call(n),
+                        p = c || !n.tagName ? null : n;
+                    if (c || p) {
+                        var v = e.pageYOffset;
+                        i.header && !S && (S = document.querySelector(i.header)), E || (E = d(S));
+                        var y, b, C, w = c ? n : l(p, E, parseInt("function" == typeof i.offset ? i.offset(n, r) : i.offset, 10), i.clip),
+                            L = w - v,
+                            A = s(),
+                            H = 0,
+                            q = function(t, o) {
+                                var a = e.pageYOffset;
+                                if (t == o || a == o || (v < o && e.innerHeight + a) >= A) return I.cancelScroll(!0), m(n, o, c), h("scrollStop", i, n, r), y = null, O = null, !0
+                            },
+                            Q = function(t) {
+                                y || (y = t), H += t - y, b = H / parseInt(i.speed, 10), b = b > 1 ? 1 : b, C = v + L * u(i, b), e.scrollTo(0, Math.floor(C)), q(C, w) || (O = e.requestAnimationFrame(Q), y = t)
+                            };
+                        0 === e.pageYOffset && e.scrollTo(0, 0), f(n, c, i), h("scrollStart", i, n, r), I.cancelScroll(!0), e.requestAnimationFrame(Q)
+                    }
+                };
+                var C = function(t) {
+                        if (!r() && 0 === t.button && !t.metaKey && !t.ctrlKey && "closest" in t.target && (y = t.target.closest(a)) && "a" === y.tagName.toLowerCase() && !t.target.closest(g.ignore) && y.hostname === e.location.hostname && y.pathname === e.location.pathname && /#/.test(y.href)) {
+                            var n = c(i(y.hash)),
+                                o = g.topOnEmptyHash && "#" === n ? document.documentElement : document.querySelector(n);
+                            o = o || "#top" !== n ? o : document.documentElement, o && (t.preventDefault(), I.animateScroll(o, y))
+                        }
+                    },
+                    w = function(e) {
+                        if (null !== history.state && history.state.smoothScroll && history.state.smoothScroll === JSON.stringify(g) && history.state.anchor) {
+                            var t = document.querySelector(c(i(history.state.anchor)));
+                            t && I.animateScroll(t, null, {
+                                updateURL: !1
+                            })
+                        }
+                    },
+                    L = function(e) {
+                        b || (b = setTimeout((function() {
+                            b = null, E = d(S)
+                        }), 66))
+                    };
+                return I.destroy = function() {
+                    g && (document.removeEventListener("click", C, !1), e.removeEventListener("resize", L, !1), e.removeEventListener("popstate", w, !1), I.cancelScroll(), g = null, v = null, y = null, S = null, E = null, b = null, O = null)
+                }, I.init = function(r) {
+                    if (!n()) throw "Smooth Scroll: This browser does not support the required JavaScript methods and browser APIs.";
+                    I.destroy(), g = o(t, r || {}), S = g.header ? document.querySelector(g.header) : null, E = d(S), document.addEventListener("click", C, !1), S && e.addEventListener("resize", L, !1), g.updateURL && g.popstate && e.addEventListener("popstate", w, !1)
+                }, I.init(p), I
+            }
+        }));
+    </script>
+    <script>
+        ;
+        (function() {
+            var offset = 0
+
+            if (document.getElementsByClassName('header--fixed').length) {
+                offset = document.getElementsByClassName('header--fixed')[0].clientHeight;
+            }
+
+            // smooth scrolling to all anchor links
+            new window.SmoothScroll('a[href*="#"]', {
+                offset: offset
+            });
+        })();
+    </script>
+</body>
+    </html>
