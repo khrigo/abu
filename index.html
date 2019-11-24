@@ -198,15 +198,10 @@
                             <div class="inlineFormWrapper left">
                                 <form id="if_656qoo66pkq" class="inlineForm inlineForm--c long">
                                     <div class="inlineFormContent">
-                                        <input type="hidden" id="if_siteid_656qoo66pkq" value="12vtfoyb92s3" />
-                                        <input type="hidden" id="if_listid_656qoo66pkq" value="el_KrrCYMrnrWotBrgz" />
-                                        <input type="hidden" id="if_action_656qoo66pkq" value="landen" />
-                                        <input type="hidden" id="if_url_656qoo66pkq" />
-                                        <input type="hidden" id="if_legal_656qoo66pkq" />
-                                        <input type="hidden" id="if_reqaccept_656qoo66pkq" />
                                         <input type="email" id="if_email_656qoo66pkq" class="inlineForm__input" placeholder="email@example.com" />
                                         <button id="if_submit_656qoo66pkq" class="btn btn--c btn--primary btn--large" style="color:#fff;background-color:#0881fe">Join Waitlist</button>
                                     </div>
+                                    <div id="errorForm" style="color:red;margin-top:5px;"></div>
                                 </form>
                             </div>
                             <script>
@@ -236,13 +231,7 @@
                                         e.preventDefault()
 
                                         var data = {
-                                            siteId: elSiteID.value,
-                                            listId: elListID.value,
-                                            email: elEmail.value,
-                                            action: elAction.value,
-                                            name: elName ? elName.value : null,
-                                            didAccept: elAccept ? elAccept.checked : null,
-                                            legal: elLegal ? elLegal.value : null
+                                            email: elEmail.value
                                         }
 
                                         if (!validateInlineData(data)) {
@@ -250,8 +239,7 @@
                                         }
 
                                         elSubmitBtn.classList.add('btn--loading')
-                                        
-                                        return 0;
+
 
                                         if (data.action === 'forward') {
                                             forwardData(data)
@@ -273,16 +261,17 @@
 
                                     function sendInlineData(data) {
                                         var request = new XMLHttpRequest()
-                                        request.open('POST', 'api/subscribe', true)
+                                        request.open('POST', 'https://api.abu.technology/api/v1/subscriptions/', true)
                                         request.setRequestHeader(
                                             'Content-Type',
-                                            'application/x-www-form-urlencoded; charset=UTF-8'
+                                            'application/json; charset=UTF-8'
                                         )
                                         request.send(JSON.stringify(data))
 
                                         request.onload = function() {
                                             elSubmitBtn.classList.remove('btn--loading')
                                             if (this.status >= 200 && this.status < 400) {
+                                                document.getElementById('errorForm').innerHTML = '';
                                                 // success handling
                                                 clearInlineData()
                                                 elSubmitBtn.classList.add('btn--success')
@@ -292,6 +281,7 @@
                                                 sendEvent(data.siteId, data.action, data.listId, false)
                                             } else {
                                                 console.log('error')
+                                                document.getElementById('errorForm').innerHTML = JSON.parse(this.response).email;
                                             }
                                         }
 
@@ -314,16 +304,7 @@
                                             }
                                         })
 
-                                        if (asBeacon) {
-                                            if (navigator.sendBeacon) {
-                                                navigator.sendBeacon('/api/event', data)
-                                            }
-                                        } else {
-                                            var request = new XMLHttpRequest();
-                                            request.open('POST', '/api/event', true);
-                                            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-                                            request.send(data);
-                                        }
+                                       
                                     }
 
                                     function clearInlineData() {
@@ -593,6 +574,8 @@
                 offset: offset
             });
         })();
+
+
     </script>
 </body>
     </html>
