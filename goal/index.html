@@ -12,9 +12,19 @@
 
 
   <h1 class="age-label">Our goal is to attract 4% of Internet users in the world</h1>
-  <h2 class="count">175 520 319</sup></h2>
+  <h2 class="count" id="count">175 520 319</sup></h2>
+
+  <script type="text/javascript">
+    function prettify(num) {
+            var n = num.toString();
+            return n.replace(/(\d{1,3}(?=(?:\d\d\d)+(?!\d)))/g, "$1" + ' ');
+        }
+    function plus() {
+      str = parseInt(document.getElementById("count").textContent.replace(/\s/g, '')) + 1;
+      document.getElementById("count").innerHTML = prettify(str);
+    }
+    setInterval(plus, 1500)
+  </script>
 
 </body>
 </html>
-
-
